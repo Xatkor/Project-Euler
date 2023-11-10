@@ -7,30 +7,24 @@
 
 bool is_prime(int a);
 
-int main(){
+int main(void){
+    unsigned long long sum = 2;
+    int BelowNumber = 2000000;
 
-    const unsigned long long number = 600851475143;
-    int value = 0;
-    int prime;
-    int i = 1;
-
-    while (value < 10001) {
-        i++;
+    for (int i = 3; i <= BelowNumber; i+=2){
         if(is_prime(i)){
-            prime = i;
-            value += 1;
-
+            sum += i;
         }
     }
 
-    printf("%d: %d", value, prime);
-    printf("\n");
+    printf("%llu\n", sum);
+
     return 0;
 }
 
 bool is_prime(int a){
 
-    for(int i = 2; i <= (int)(a*a) + 1; i++){
+    for(int i = 2; i <= (int)sqrt(a) + 1; i++){
         if(a % i == 0){
             return false;
         }
